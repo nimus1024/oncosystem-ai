@@ -21,7 +21,7 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 ```
 pip install isic-cli
 mkdir images
-# launch below and terminate when half is loaded with Ctrl+C 
+# launch below and terminate when half is loaded with Ctrl+C. This dataset is too large. 
 isic image download --limit 0 --search 'benign_malignant:benign' images/benign 
 # launch below and wait until fully completed
 isic image download --limit 0 --search 'benign_malignant:malignant' images/malignant 
