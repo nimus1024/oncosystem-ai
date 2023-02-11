@@ -6,7 +6,9 @@ git clone https://github.com/bs35/cancern-treatment.git
 ```
 (Then open VScode, find cancern-treatment folder in your computer system, open it as a new project)
 
-## Step 2. Install python 3.9
+## Step 2. Install python 3.9 or later (required for isic-cli)
+
+For Mac
 ```
 brew install python@3.9
 brew unlink python@3.9
@@ -16,10 +18,15 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 ```
 (to go back to old python3.8 version, repeat last 4 lines swapping 3.9 and 3.8)
 
+For Windows, set up is easier.
+```
+# install python 3.11 through downloading exe, install
+```
 
 ## Step 3. Install ISIC database of skin cancer imaging (will use to train and test the model)
 ```
-pip install isic-cli
+# For Mac: pip install isic-cli
+py -3.11 -m pip install isic-cli
 mkdir images
 # launch below and terminate when half is loaded with Ctrl+C. This dataset is too large. 
 isic image download --limit 0 --search 'benign_malignant:benign' images/benign 
