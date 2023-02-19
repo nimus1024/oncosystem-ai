@@ -1,6 +1,6 @@
 ## Processed Images
 
-'static' folder stores skin images that user uploaded to the website. 
+'static' folder stores skin image uploaded by the user to the website. 
 
 <em>
 Images have to be stored locally for two reasons:
