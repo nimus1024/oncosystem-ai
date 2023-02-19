@@ -2,10 +2,9 @@ from flask import Flask, render_template, request
 from keras.models import load_model
 import keras.utils as image
 from keras.applications.imagenet_utils import decode_predictions 
+import numpy as np
 
 app = Flask(__name__)
-
-dic = {0 : 'maligmant', 1 : 'benign'}
 
 model = load_model('cancer_pretrained_model.h5')
 model.load_weights("best_weights")
@@ -14,19 +13,14 @@ model.make_predict_function()
 
 def predict_label(img_path):
 	i = image.load_img(img_path, target_size=(224,224))
-	i = image.img_to_array(i)/255.0
-	# NOTE: changed shape from 1, 100,100 to 224,224,3 per our model in 2_train_model
-	i = i.reshape(1, 224,224,3)
+	i = image.img_to_array(i)
+	i = np.expand_dims(i, axis = 0)
 	p = model.predict(i)
-	print(p)
+	print(p, img_path)
 	if p[0][0] > p[0][1]:
 		return "benign"
 	else:
 		return "malignant"
-	# dec_pred = decode_predictions(p)
-	
-	# return dic[p[0]]
-
 
 # routes
 @app.route("/", methods=['GET', 'POST'])
@@ -46,7 +40,6 @@ def get_output():
 	img.save(img_path)
 
 	p = predict_label(img_path)
-
 	return render_template("index.html", prediction = p, img_path = img_path)
 
 
