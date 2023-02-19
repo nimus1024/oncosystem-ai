@@ -8,6 +8,7 @@ app = Flask(__name__)
 dic = {0 : 'maligmant', 1 : 'benign'}
 
 model = load_model('cancer_pretrained_model.h5')
+model.load_weights("best_weights")
 
 model.make_predict_function()
 
@@ -38,14 +39,13 @@ def about_page():
 
 @app.route("/submit", methods = ['GET', 'POST'])
 def get_output():
-	if request.method == 'POST':
-		img = request.files['my_image']
+	# if request.method == 'POST':
+	img = request.files['my_image']
 
-		#img_path = "static/" + img.filename	
-		img_path = img.filename	
-		img.save(img_path)
+	img_path = "static/" + img.filename	
+	img.save(img_path)
 
-		p = predict_label(img_path)
+	p = predict_label(img_path)
 
 	return render_template("index.html", prediction = p, img_path = img_path)
 
