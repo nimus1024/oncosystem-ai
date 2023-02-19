@@ -1,6 +1,6 @@
 ## Processed Images
 
-'static' folder stores skin image uploaded by the user to the website. 
+'static' folder stores images that user uploaded to the website. 
 
 <em>
 We have to store images inside 'static' for two reasons:
