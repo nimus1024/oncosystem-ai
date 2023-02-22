@@ -474,8 +474,9 @@ export const links = [
     title: 'Dashboard',
     links: [
       {
-        name: 'ecommerce',
-        icon: <FiShoppingBag />,
+        name: 'Main',
+        icon: <RiContactsLine />,
+        display_name: "Главная",
       },
     ],
   },
@@ -484,16 +485,14 @@ export const links = [
     title: 'Pages',
     links: [
       {
-        name: 'orders',
-        icon: <AiOutlineShoppingCart />,
-      },
-      {
-        name: 'employees',
+        name: 'Patients',
         icon: <IoMdContacts />,
+        display_name: 'Пациенты',
       },
       {
-        name: 'customers',
-        icon: <RiContactsLine />,
+        name: 'Treatment',
+        icon: <AiOutlineStock />,
+        display_name: 'План Лечения',
       },
     ],
   },
@@ -511,10 +510,6 @@ export const links = [
       {
         name: 'editor',
         icon: <FiEdit />,
-      },
-      {
-        name: 'color-picker',
-        icon: <BiColorFill />,
       },
     ],
   },
