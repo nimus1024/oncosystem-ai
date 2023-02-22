@@ -24,3 +24,17 @@ yarn-error.log*
 
 # must be generated locally with npm install
 package-lock.json
+
+# temp model files
+.github/FUNDING.yml
+benign_test.npy
+benign_train.npy
+best_weights.data-00000-of-00001
+best_weights.index
+cancer_pretrained_model.h5
+checkpoint
+history.json
+history.npy
+license.txt
+malign_test.npy
+malign_train.npy
