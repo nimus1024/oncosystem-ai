@@ -1,8 +1,8 @@
 import React from 'react';
-import { BsCurrencyDollar } from 'react-icons/bs';
 import { GoPrimitiveDot } from 'react-icons/go';
 import { IoIosMore } from 'react-icons/io';
 import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
+import { BsShield } from 'react-icons/bs';
 
 import { Stacked, Pie, Button, LineChart, SparkLine } from '../components';
 import { earningData, medicalproBranding, recentTransactions, weeklyStats, dropdownData, SparklineAreaData, ecomPieChartData } from '../data/dummy';
@@ -24,8 +24,17 @@ const Main = () => {
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repeat bg-cover bg-center">
           <div className="flex justify-between items-center">
             <div>
-              <p className="font-bold text-gray-400">Изображение опухоли</p>
+              <p className="font-bold text-gray-400">Медкарта</p>
+              <p className="text-2xl">Крапивина А.И.</p>
             </div>
+
+            <button
+              type="button"
+              style={{ color: 'rgb(0, 194, 146)', backgroundColor: 'rgb(235, 250, 242)' }}
+              className="text-2xl rounded-lg p-4 hover:drop-shadow-xl"
+            >
+            <BsShield/>
+            </button>
           </div>
           <div className="mt-6">
             <Button
@@ -61,19 +70,10 @@ const Main = () => {
       <div className="flex gap-10 flex-wrap justify-center">
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780  ">
           <div className="flex justify-between">
-            <p className="font-semibold text-xl">Revenue Updates</p>
+            <p className="font-semibold text-xl">Статистика заболевания</p>
             <div className="flex items-center gap-4">
               <p className="flex items-center gap-2 text-gray-600 hover:drop-shadow-xl">
-                <span>
-                  <GoPrimitiveDot />
-                </span>
-                <span>Expense</span>
-              </p>
-              <p className="flex items-center gap-2 text-green-400 hover:drop-shadow-xl">
-                <span>
-                  <GoPrimitiveDot />
-                </span>
-                <span>Budget</span>
+                <span></span>
               </p>
             </div>
           </div>
@@ -81,17 +81,14 @@ const Main = () => {
             <div className=" border-r-1 border-color m-4 pr-10">
               <div>
                 <p>
-                  <span className="text-3xl font-semibold">$93,438</span>
-                  <span className="p-1.5 hover:drop-shadow-xl cursor-pointer rounded-full text-white bg-green-400 ml-3 text-xs">
-                    23%
-                  </span>
+                  <span className="text-3xl font-semibold">87%</span>
                 </p>
-                <p className="text-gray-500 mt-1">Budget</p>
+                <p className="text-gray-500 mt-1">Меланома</p>
               </div>
               <div className="mt-8">
-                <p className="text-3xl font-semibold">$48,487</p>
+                <p className="text-3xl font-semibold">13%</p>
 
-                <p className="text-gray-500 mt-1">Expense</p>
+                <p className="text-gray-500 mt-1">Не меланома</p>
               </div>
 
               <div className="mt-5">
@@ -101,7 +98,7 @@ const Main = () => {
                 <Button
                   color="white"
                   bgColor={currentColor}
-                  text="Download Report"
+                  text="Закгрузить изображение"
                   borderRadius="10px"
                 />
               </div>
@@ -117,11 +114,11 @@ const Main = () => {
             style={{ backgroundColor: currentColor }}
           >
             <div className="flex justify-between items-center ">
-              <p className="font-semibold text-white text-2xl">Earnings</p>
+              <p className="font-semibold text-white text-2xl">Изображение опухоли</p>
 
               <div>
-                <p className="text-2xl text-white font-semibold mt-8">$63,448.78</p>
-                <p className="text-gray-200">Monthly revenue</p>
+                <p className="text-2xl text-white font-semibold mt-8"></p>
+                <p className="text-gray-200"></p>
               </div>
             </div>
 
@@ -177,17 +174,17 @@ const Main = () => {
               <Button
                 color="white"
                 bgColor={currentColor}
-                text="Add"
+                text="Добавить"
                 borderRadius="10px"
               />
             </div>
 
-            <p className="text-gray-400 text-sm">36 Recent Transactions</p>
+            <p className="text-gray-400 text-sm"></p>
           </div>
         </div>
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl w-96 md:w-760">
           <div className="flex justify-between items-center gap-2 mb-10">
-            <p className="text-xl font-semibold">Sales Overview</p>
+            <p className="text-xl font-semibold">Статистика заболевания</p>
             <DropDown currentMode={currentMode} />
           </div>
           <div className="md:w-full overflow-auto">
@@ -233,40 +230,39 @@ const Main = () => {
         </div>
         <div className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
           <div className="flex justify-between">
-            <p className="text-xl font-semibold">MedicalPro Branding</p>
+            <p className="text-xl font-semibold">Направление</p>
             <button type="button" className="text-xl font-semibold text-gray-400">
               <IoIosMore />
             </button>
           </div>
-          <p className="text-xs cursor-pointer hover:drop-shadow-xl font-semibold rounded-lg w-24 bg-orange-400 py-0.5 px-2 text-gray-200 mt-10">
-            16 APR, 2021
+          <p className="text-xs cursor-pointer hover:drop-shadow-xl font-semibold rounded-lg w-25 bg-orange-400 py-0.7 px-2 text-gray-200 mt-20">
+            Среда (3 мая 2023)
           </p>
 
-          <div className="flex gap-4 border-b-1 border-color mt-6">
+          <div>
             {medicalproBranding.data.map((item) => (
-              <div key={item.title} className="border-r-1 border-color pr-4 pb-2">
+              <div>
                 <p className="text-xs text-gray-400">{item.title}</p>
                 <p className="text-sm">{item.desc}</p>
               </div>
+            
             ))}
+          
           </div>
           <div className="border-b-1 border-color pb-4 mt-2">
-            <p className="text-md font-semibold mb-2">Teams</p>
-
+            <p className="text-md font-semibold mb-2">Место</p>
             <div className="flex gap-4">
-              {medicalproBranding.teams.map((item) => (
-                <p
-                  key={item.name}
-                  style={{ background: item.color }}
-                  className="cursor-pointer hover:drop-shadow-xl text-white py-0.5 px-3 rounded-lg text-xs"
-                >
-                  {item.name}
-                </p>
-              ))}
+            
+            </div>
+          </div>
+          <div className="border-b-1 border-color pb-4 mt-2">
+            <p className="text-md font-semibold mb-2">Время</p>
+            <div className="flex gap-4">
+            
             </div>
           </div>
           <div className="mt-2">
-            <p className="text-md font-semibold mb-2">Leaders</p>
+            <p className="text-md font-semibold mb-2">Ваш врач</p>
             <div className="flex gap-4">
               {medicalproBranding.leaders.map((item, index) => (
                 <img key={index} className="rounded-full w-8 h-8" src={item.image} alt="" />
@@ -278,12 +274,12 @@ const Main = () => {
               <Button
                 color="white"
                 bgColor={currentColor}
-                text="Add"
+                text="Изменить"
                 borderRadius="10px"
               />
             </div>
 
-            <p className="text-gray-400 text-sm">36 Recent Transactions</p>
+            <p className="text-gray-400 text-sm"></p>
           </div>
         </div>
         <div className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
