@@ -110,33 +110,31 @@ const Main = () => {
         </div>
         <div>
           <div
-            className=" rounded-2xl md:w-400 p-4 m-3"
-            style={{ backgroundColor: currentColor }}
+            className=" rounded-2xl md:w-400 p-4 m-3 bg-white"
           >
-            <div className="flex justify-between items-center ">
-              <p className="font-semibold text-white text-2xl">Изображение опухоли</p>
+            <div class="container">
+              <h1 class="jumbotron bg-primary">Image Classfication</h1>
+              <br></br>
+              <form class="form-horizontal" action="/submit" method="post" enctype="multipart/form-data">
 
-              <div>
-                <p className="text-2xl text-white font-semibold mt-8"></p>
-                <p className="text-gray-200"></p>
-              </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="pwd">Upload Your Image :</label>
+                  <div class="col-sm-10">          
+                    <input type="file" class="form-control" placeholder="Hours Studied"  name="my_image" id="pwd"/>
+                  </div>
+                </div>
+
+                <div class="form-group">        
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                  </div>
+                </div>
+              </form>
+
             </div>
 
-            <div className="mt-4">
-              <SparkLine currentColor={currentColor} id="column-sparkLine" height="100px" type="Column" data={SparklineAreaData} width="320" color="rgb(242, 252, 253)" />
-            </div>
           </div>
 
-          <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl md:w-400 p-8 m-3 flex justify-center items-center gap-10">
-            <div>
-              <p className="text-2xl font-semibold ">$43,246</p>
-              <p className="text-gray-400">Yearly sales</p>
-            </div>
-
-            <div className="w-40">
-              <Pie id="pie-chart" data={ecomPieChartData} legendVisiblity={false} height="160px" />
-            </div>
-          </div>
         </div>
       </div>
 
