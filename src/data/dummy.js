@@ -1,7 +1,7 @@
 import React from 'react';
 import { AiOutlineCalendar, AiOutlineShoppingCart, AiOutlineAreaChart, AiOutlineBarChart, AiOutlineStock } from 'react-icons/ai';
 import { FiShoppingBag, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, FiShoppingCart } from 'react-icons/fi';
-import { BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft } from 'react-icons/bs';
+import { BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft, BsFileEarmarkMedical, BsFillPersonFill, BsAsterisk, BsFillCalendarEventFill } from 'react-icons/bs';
 import { BiColorFill } from 'react-icons/bi';
 import { IoMdContacts } from 'react-icons/io';
 import { RiContactsLine, RiStockLine } from 'react-icons/ri';
@@ -608,41 +608,41 @@ export const chatData = [
 
 export const earningData = [
   {
-    icon: <MdOutlineSupervisorAccount />,
-    amount: '_',
+    icon: <BsFileEarmarkMedical />,
+    amount: '123456789000000',
     percentage: '',
-    title: '_',
+    title: 'Полис ОМС',
     iconColor: '#03C9D7',
     iconBg: '#E5FAFB',
     pcColor: 'red-600',
   },
   {
-    icon: <BsBoxSeam />,
-    amount: '123456789000000',
-    percentage: '',
-    title: 'полис',
-    iconColor: 'rgb(255, 244, 229)',
-    iconBg: 'rgb(254, 201, 15)',
-    pcColor: 'green-600',
-  },
-  {
-    icon: <FiBarChart />,
+    icon: <BsFillCalendarEventFill />,
     amount: '06.11.1980',
     percentage: '',
-    title: 'дата рождения',
+    title: 'Дата рождения',
     iconColor: 'rgb(228, 106, 118)',
     iconBg: 'rgb(255, 244, 229)',
 
     pcColor: 'green-600',
   },
   {
-    icon: <HiOutlineRefresh />,
-    amount: 'рост:165см                  вес: 60кг',
+    icon: <BsFillPersonFill />,
+    amount: 'Женский',
     percentage: '',
-    title: 'Био данные',
+    title: 'Пол',
     iconColor: 'rgb(0, 194, 146)',
     iconBg: 'rgb(235, 250, 242)',
     pcColor: 'red-600',
+  },
+  {
+    icon: <BsAsterisk />,
+    amount: 'II группа',
+    percentage: '',
+    title: 'Группа здоровья',
+    iconColor: 'rgb(255, 244, 229)',
+    iconBg: 'rgb(254, 201, 15)',
+    pcColor: 'green-600',
   },
 ];
 
