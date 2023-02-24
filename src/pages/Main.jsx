@@ -3,11 +3,13 @@ import { GoPrimitiveDot } from 'react-icons/go';
 import { IoIosMore } from 'react-icons/io';
 import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
 import { BsShield } from 'react-icons/bs';
+import { useState, useEffect } from "react";
 
 import { Stacked, Pie, Button, LineChart, SparkLine } from '../components';
 import { earningData, medicalproBranding, recentTransactions, weeklyStats, dropdownData, SparklineAreaData, ecomPieChartData } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 import product9 from '../data/product9.jpg';
+
 
 const DropDown = ({ currentMode }) => (
   <div className="w-28 border-1 border-color px-2 py-1 rounded-md">
@@ -15,8 +17,28 @@ const DropDown = ({ currentMode }) => (
   </div>
 );
 
+
+
 const Main = () => {
   const { currentColor, currentMode } = useStateContext();
+  
+  const [data, setdata] = useState({
+    prediction: "",
+  });
+  
+  // Using useEffect for single rendering
+  useEffect(() => {
+    // Using fetch to fetch the api from 
+    // flask server it will be redirected to proxy
+    fetch("/submit").then((res) =>
+        res.json().then((data) => {
+            // Setting a data from api
+            setdata({
+                prediction: data.prediction,
+            });
+        })
+    );
+  }, []);
 
   return (
     <div className="mt-24">
@@ -112,25 +134,34 @@ const Main = () => {
           <div
             className=" rounded-2xl md:w-400 p-4 m-3 bg-white"
           >
-            <div class="container">
-              <h1 class="jumbotron bg-primary">Image Classfication</h1>
+            <div className="container">
+              <h1 className="jumbotron bg-primary">Image Classfication</h1>
               <br></br>
-              <form class="form-horizontal" action="/submit" method="post" enctype="multipart/form-data">
+              <form className="form-horizontal" action="/submit" method="post" encType="multipart/form-data">
 
-                <div class="form-group">
-                  <label class="control-label col-sm-2" for="pwd">Upload Your Image :</label>
-                  <div class="col-sm-10">          
-                    <input type="file" class="form-control" placeholder="Hours Studied"  name="my_image" id="pwd"/>
+                <div className="form-group">
+                  <label className="control-label col-sm-2" htmlFor="pwd">Upload Your Image :</label>
+                  <div className="col-sm-10">          
+                    <input type="file" className="form-control" placeholder="Hours Studied"  name="my_image" id="pwd"/>
                   </div>
                 </div>
 
-                <div class="form-group">        
-                  <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-success">Submit</button>
+                <div className="form-group">        
+                  <div className="col-sm-offset-2 col-sm-10">
+                    <button type="submit" className="btn btn-success">Submit</button>
                   </div>
                 </div>
               </form>
+              <div>
 
+              { data.prediction 
+              ?
+              [
+                <img src="{{img_path}}" height="400px" width="400px" />,
+                <h2> Your Prediction   : <i> {data.prediction} </i></h2> 
+              ]
+              : '' }
+              </div>
             </div>
 
           </div>
