@@ -119,7 +119,7 @@ const Main = () => {
                 <Button
                   color="white"
                   bgColor={currentColor}
-                  text="Закгрузить изображение"
+                  text="Загрузить отчет"
                   borderRadius="10px"
                 />
               </div>
@@ -134,25 +134,24 @@ const Main = () => {
             className=" rounded-2xl md:w-400 p-4 m-3 bg-white"
           >
             <div className="container">
-              <h1 className="jumbotron bg-primary">Image Classfication</h1>
+              <p className="font-semibold text-xl">AI Диагностика</p>
               <br></br>
               <form className="form-horizontal" action="/submit" method="post" encType="multipart/form-data">
 
                 <div className="form-group">
-                  <label className="control-label col-sm-2" htmlFor="pwd">Upload Your Image :</label>
+                  <label className="control-label" htmlFor="pwd">Анализ фото:</label>
                   <div className="col-sm-10">          
-                    <input type="file" className="form-control" placeholder="Hours Studied"  name="my_image" id="pwd"/>
+                    <input type="file" className="form-control" placeholder="фото родинки" name="my_image" id="pwd"/>
                   </div>
                 </div>
-
                 <div className="form-group">        
                   <div className="col-sm-offset-2 col-sm-10">
-                    <button type="submit" className="btn btn-success">Submit</button>
+                    <button type="submit" className="btn btn-success">Отправить</button>
                   </div>
                 </div>
+
               </form>
               <div>
-
               { data.prediction 
               ?
               [

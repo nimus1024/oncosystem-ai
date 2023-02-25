@@ -48,12 +48,16 @@ export const gridOrderStatus = (props) => (
 );
 
 export const kanbanGrid = [
-  { headerText: 'To Do',
+  { headerText: 'Медикаментозная терапия',
     keyField: 'Open',
     allowToggle: true },
 
-  { headerText: 'In Progress',
+  { headerText: 'Химиотерапия',
     keyField: 'InProgress',
+    allowToggle: true },
+
+  { headerText: 'Хирургическое вмешательтво',
+    keyField: 'Close',
     allowToggle: true },
 ];
 const gridEmployeeProfile = (props) => (
@@ -460,7 +464,7 @@ export const employeesGrid = [
 
 export const links = [
   {
-    title: '_',
+    title: 'Диагностика',
     links: [
       {
         name: 'Main',
@@ -471,17 +475,17 @@ export const links = [
   },
 
   {
-    title: '_',
+    title: 'Терапия',
     links: [
-      {
-        name: 'Patients',
-        icon: <IoMdContacts />,
-        display_name: 'Пациенты',
-      },
       {
         name: 'Treatment',
         icon: <AiOutlineStock />,
         display_name: 'План Лечения',
+      },
+      {
+        name: 'Patients',
+        icon: <IoMdContacts />,
+        display_name: 'Пациенты',
       },
     ],
   },

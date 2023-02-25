@@ -74,7 +74,7 @@ const Treatment = () => {
       <div className="flex gap-10 m-4 flex-wrap justify-center">
       <div className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
           <div className="flex justify-between">
-            <p className="text-xl font-semibold">Daily Activities</p>
+            <p className="text-xl font-semibold">Рекомендованное Лечение</p>
             <button type="button" className="text-xl font-semibold text-gray-500">
               <IoIosMore />
             </button>
@@ -114,9 +114,9 @@ const Treatment = () => {
         </div>
       </div>
 
-      {/* Доска с детальным описание (1) назначенного лекарства и (2) терапии */}
+      {/* Доска с детальным описание (1) медикаментозная терапия и (2) терапии */}
       <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
-        <Header category="App" title="Treatment" />
+        <Header category="Анализ МедСистемы AI" title="Схема Лечения" />
         <KanbanComponent
           id="kanban"
           keyField="Status"
