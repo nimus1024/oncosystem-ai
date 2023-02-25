@@ -8,6 +8,7 @@ import { Stacked, Pie, Button, LineChart, SparkLine } from '../components';
 import { earningData, medicalproBranding, recentTransactions, weeklyStats, dropdownData, SparklineAreaData, ecomPieChartData } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 import product9 from '../data/product9.jpg';
+import '../style.scss';
 
 
 const DropDown = ({ currentMode }) => (
@@ -131,20 +132,19 @@ const Main = () => {
         </div>
         <div>
           <div
-            className=" rounded-2xl md:w-400 p-4 m-3 bg-white"
+            className=" rounded-2xl md:w-400 p-4 m-3 bg-white flex local-bootstrap"
           >
-            <div className="container">
+            <div className="container flex flex-wrap">
               <p className="font-semibold text-xl">AI Диагностика</p>
-              <br></br>
               <form className="form-horizontal" action="/submit" method="post" encType="multipart/form-data">
 
-                <div className="form-group">
-                  <label className="control-label" htmlFor="pwd">Анализ фото:</label>
-                  <div className="col-sm-10">          
+                <div className="form-group flex flex-wrap gap-2">
+                  <label className="control-label" htmlFor="pwd">Анализ по фото</label>
+                  <div className="col-sm-10 ">          
                     <input type="file" className="form-control" placeholder="фото родинки" name="my_image" id="pwd"/>
                   </div>
                 </div>
-                <div className="form-group">        
+                <div className="form-group lex justify-between items-center mt-4">        
                   <div className="col-sm-offset-2 col-sm-10">
                     <button type="submit" className="btn btn-success">Отправить</button>
                   </div>
