@@ -9,6 +9,8 @@ import { earningData, medicalproBranding, recentTransactions, weeklyStats, dropd
 import { useStateContext } from '../contexts/ContextProvider';
 import product9 from '../data/product9.jpg';
 import '../style.scss';
+import { useNavigate } from "react-router-dom";
+
 
 
 const DropDown = ({ currentMode }) => (
@@ -17,6 +19,21 @@ const DropDown = ({ currentMode }) => (
   </div>
 );
 
+function handleImagePrediction() {
+  const navigate = useNavigate();
+  fetch('/submit', {
+      method: 'POST',
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({"my_image": my_image})
+  }).then(() => {
+      console.log("POST: " + my_image)
+  })
+
+  fetch('/submit').then(
+    response => response.json()
+  ).then(data => get_output(data))
+  navigate('/', { replace: true });
+}
 
 
 const Main = () => {
@@ -25,20 +42,7 @@ const Main = () => {
   const [data, setdata] = useState({
     prediction: "",
   });
-  
-  // Using useEffect for single rendering
-  useEffect(() => {
-    // Using fetch to fetch the api from 
-    // flask server it will be redirected to proxy
-    fetch("/submit").then((res) =>
-        res.json().then((data) => {
-            // Setting a data from api
-            setdata({
-                prediction: data.prediction,
-            });
-        })
-    );
-  }, []);
+
 
   return (
     <div className="mt-24">
@@ -146,7 +150,7 @@ const Main = () => {
                 </div>
                 <div className="form-group lex justify-between items-center mt-4">        
                   <div className="col-sm-offset-2 col-sm-10">
-                    <button type="submit" className="btn btn-success">Отправить</button>
+                    <button type="submit" className="btn btn-success" onClick={handleImagePrediction}>Отправить</button>
                   </div>
                 </div>
 
@@ -155,7 +159,7 @@ const Main = () => {
               { data.prediction 
               ?
               [
-                <img src="{{img_path}}" height="400px" width="400px" />,
+                <img src="{{data.img_path}}" height="400px" width="400px" />,
                 <h2> Your Prediction   : <i> {data.prediction} </i></h2> 
               ]
               : '' }

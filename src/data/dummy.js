@@ -490,7 +490,17 @@ export const links = [
     ],
   },
   {
-    title: '//',
+    title: 'Памятка',
+    links: [
+      {
+        name: 'Info',
+        icon: <IoMdContacts />,
+        display_name: 'О меланоме',
+      },
+    ],
+  },
+  {
+    title: 'На удаление',
     links: [
       {
         name: 'calendar',
@@ -504,11 +514,6 @@ export const links = [
         name: 'editor',
         icon: <FiEdit />,
       },
-    ],
-  },
-  {
-    title: '//',
-    links: [
       {
         name: 'line',
         icon: <AiOutlineStock />,

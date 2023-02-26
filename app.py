@@ -23,9 +23,9 @@ def predict_label(img_path):
 		return "malignant"
 
 # routes
-@app.route("/", methods=['GET', 'POST'])
-def main():
-	return render_template("index.html")
+# @app.route("/", methods=['GET', 'POST'])
+# def main():
+# 	return render_template("index.html")
 
 @app.route("/about")
 def about_page():
@@ -33,15 +33,16 @@ def about_page():
 
 @app.route("/submit", methods = ['GET', 'POST'])
 def get_output():
-	# if request.method == 'POST':
-	img = request.files['my_image']
+	p = 0
+	img_path = 0
+	if request.method == 'POST':
+		img = request.files['my_image']
 
-	img_path = "static/" + img.filename	
-	img.save(img_path)
+		img_path = "static/" + img.filename	
+		img.save(img_path)
 
-	p = predict_label(img_path)
-	return render_template("index.html", prediction = p, img_path = img_path)
-
+		p = predict_label(img_path)
+	return {"prediction" : p, "img_path" : img_path}
 
 if __name__ =='__main__':
 	#app.debug = True

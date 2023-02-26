@@ -17,27 +17,31 @@ const Patients = () => {
   };
 
   return (
-    <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
-      <Header category="" title="Пациенты" />
-      <GridComponent
-        dataBound={dataBound}
-        ref={g => grid = g}
-        dataSource={employeesData}
-        width="auto"
-        allowPaging
-        allowSorting
-        pageSettings={{ pageCount: 5 }}
-        editSettings={editing}
-        toolbar={toolbarOptions}
-      >
-        <Inject services={[Resize]}/>
-        <ColumnsDirective>
-          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-          {employeesGrid.map((item, index) => <ColumnDirective key={index} {...item} />)}
-        </ColumnsDirective>
-        <Inject services={[Search, Page]} />
+    <div className="mt-20">
+      <div className="flex gap-10 m-4 flex-wrap justify-center">
+        <div className="m-4 md:m-10 p-6 md:p-10 bg-white rounded-3xl">
+          <Header category="" title="Пациенты" />
+          <GridComponent
+            dataBound={dataBound}
+            ref={g => grid = g}
+            dataSource={employeesData}
+            width="auto"
+            allowPaging
+            allowSorting
+            pageSettings={{ pageCount: 5 }}
+            editSettings={editing}
+            toolbar={toolbarOptions}
+          >
+            <Inject services={[Resize]} />
+            <ColumnsDirective>
+              {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+              {employeesGrid.map((item, index) => <ColumnDirective key={index} {...item} />)}
+            </ColumnsDirective>
+            <Inject services={[Search, Page]} />
 
-      </GridComponent>
+          </GridComponent>
+        </div>
+      </div>
     </div>
   );
 };

@@ -3,6 +3,7 @@ export { default as Kanban } from './Kanban';
 export { default as Orders } from './Orders';
 export { default as Patients } from './Patients';
 export { default as Treatment } from './Treatment';
+export { default as Info } from './Info';
 export { default as Editor } from './Editor';
 export { default as Customers } from './Customers';
 export { default as Calendar } from './Calendar';

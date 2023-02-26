@@ -4,7 +4,7 @@ import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
-import { Main, Orders, Calendar, Patients, Treatment, Stacked, Pyramid, Customers, Kanban, Line, Area, Bar, Pie, Financial, ColorMapping, Editor } from './pages';
+import { Main, Orders, Calendar, Patients, Treatment, Info, Stacked, Pyramid, Customers, Kanban, Line, Area, Bar, Pie, Financial, ColorMapping, Editor } from './pages';
 import './App.css';
 
 import { useStateContext } from './contexts/ContextProvider';
@@ -71,6 +71,7 @@ const App = () => {
                 {/* pages  */}
                 <Route path="/patients" element={<Patients />} />
                 <Route path="/treatment" element={<Treatment />} />
+                <Route path="/info" element={<Info />} />
                 <Route path="/orders" element={<Orders />} />
                 <Route path="/customers" element={<Customers />} />
 
