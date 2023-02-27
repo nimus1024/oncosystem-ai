@@ -31,17 +31,18 @@ def predict_label(img_path):
 def about_page():
 	return "Please subscribe  Artificial Intelligence Hub..!!!"
 
-@app.route("/submit", methods = ['GET', 'POST'])
+@app.route("/submit", methods = ['POST'])
 def get_output():
 	p = 0
 	img_path = 0
 	if request.method == 'POST':
-		img = request.files['my_image']
-
-		img_path = "static/" + img.filename	
+		img = request.files.get('image', '')
+		print(img)
+		img_path = "static/" + img.filename
 		img.save(img_path)
 
 		p = predict_label(img_path)
+		print(p)
 	return {"prediction" : p, "img_path" : img_path}
 
 if __name__ =='__main__':

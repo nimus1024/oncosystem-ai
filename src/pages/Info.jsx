@@ -1,7 +1,7 @@
 import React from 'react';
 import { IoIosMore } from 'react-icons/io';
 
-import { Button } from '../components';
+import { Button, Header } from '../components';
 import { useStateContext } from '../contexts/ContextProvider';
 
 import product9 from '../data/product9.jpg';
@@ -17,7 +17,7 @@ const Info = () => {
       <div className="flex gap-10 m-4 flex-wrap justify-center">
       <div className="w-full bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-3xl md:m-10 p-6 md:p-10 m-4">
           <div className="flex justify-between">
-            <p className="text-xl font-semibold">Справка о меланоме</p>
+          <Header category="" title="Справка о меланоме" />
             <button type="button" className="text-xl font-semibold text-gray-500">
               <IoIosMore />
             </button>

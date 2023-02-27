@@ -3,13 +3,13 @@ import { IoIosMore } from 'react-icons/io';
 import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
 import { BsShield } from 'react-icons/bs';
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 import { Stacked, Pie, Button, LineChart, SparkLine } from '../components';
 import { earningData, medicalproBranding, recentTransactions, weeklyStats, dropdownData, SparklineAreaData, ecomPieChartData } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
-import product9 from '../data/product9.jpg';
 import '../style.scss';
-import { useNavigate } from "react-router-dom";
+import FormData from 'form-data';
 
 
 
@@ -19,29 +19,42 @@ const DropDown = ({ currentMode }) => (
   </div>
 );
 
-function handleImagePrediction() {
-  const navigate = useNavigate();
-  fetch('/submit', {
-      method: 'POST',
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({"my_image": my_image})
-  }).then(() => {
-      console.log("POST: " + my_image)
-  })
-
-  fetch('/submit').then(
-    response => response.json()
-  ).then(data => get_output(data))
-  navigate('/', { replace: true });
-}
-
-
 const Main = () => {
   const { currentColor, currentMode } = useStateContext();
+  const [prediction, setPredictionData] = useState(null);
+  const [file, setFile] = useState()
 
-  const [data, setdata] = useState({
-    prediction: "",
-  });
+  function handleFileSelected(Event) {
+    setFile(Event.target.files[0])
+  }
+
+  function getData(Event) {
+      const formData = new FormData()
+      Event.preventDefault()
+      formData.append('image', file )
+      axios({
+        method: "POST",
+        url:"/submit",
+        data: formData,
+        headers:  {
+          'Content-Type': 'multipart/form-data',
+        },
+
+      })
+      .then((response) => {
+        const res = response.data
+        setPredictionData(({
+          prediction: res.prediction,
+          img_path: res.img_path
+        }))
+      }).catch((error) => {
+        if (error.response) {
+          console.log(error.response)
+          console.log(error.response.status)
+          console.log(error.response.headers)
+          }
+      });
+  }
 
 
   return (
@@ -140,30 +153,28 @@ const Main = () => {
           >
             <div className="container flex flex-wrap">
               <p className="font-semibold text-xl">AI Диагностика</p>
-              <form className="form-horizontal" action="/submit" method="post" encType="multipart/form-data">
+              <form className="form-horizontal" onSubmit={getData}>
 
                 <div className="form-group flex flex-wrap gap-2">
-                  <label className="control-label" htmlFor="pwd">Анализ по фото</label>
+                  <label className="control-label" htmlFor="pwd">
+                  <p>Анализ по фото</p>
                   <div className="col-sm-10 ">          
-                    <input type="file" className="form-control" placeholder="фото родинки" name="my_image" id="pwd"/>
+                    <input type="file" onChange={handleFileSelected} className="form-control" placeholder="фото родинки" name="my_image" id="pwd"/>
                   </div>
+                  </label>
                 </div>
-                <div className="form-group lex justify-between items-center mt-4">        
-                  <div className="col-sm-offset-2 col-sm-10">
-                    <button type="submit" className="btn btn-success" onClick={handleImagePrediction}>Отправить</button>
-                  </div>
-                </div>
+                <div className="form-group flex justify-between items-center mt-4">        
+                  <div className="flex flex-wrap gap-10 col-sm-offset-2 col-sm-10">
+                    <button type="submit" className="btn btn-success">Отправить</button>
 
+                    {prediction && <div className="flex flex-wrap gap-4">
+                        <img src={prediction.img_path} height="400px" width="400px" />
+                        <p className="font-semibold text-xl">Предсказание  : <i> {prediction.prediction} </i></p>
+                      </div>
+                    }
+                  </div>
+                </div>
               </form>
-              <div>
-              { data.prediction 
-              ?
-              [
-                <img src="{{data.img_path}}" height="400px" width="400px" />,
-                <h2> Your Prediction   : <i> {data.prediction} </i></h2> 
-              ]
-              : '' }
-              </div>
             </div>
 
           </div>
