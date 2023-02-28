@@ -23,6 +23,7 @@ const Main = () => {
   const { currentColor, currentMode } = useStateContext();
   const [prediction, setPredictionData] = useState(null);
   const [file, setFile] = useState()
+  const [showResults, setShowResults] = useState(null)
 
   function handleFileSelected(Event) {
     setFile(Event.target.files[0])
@@ -106,7 +107,8 @@ const Main = () => {
         </div>
       </div>
 
-      <div className="flex gap-10 flex-wrap justify-center">
+      <div className="flex gap-10 flex-wrap justify-center mt-6">
+        {showResults && 
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780  ">
           <div className="flex justify-between">
             <p className="font-semibold text-xl">Статистика заболевания</p>
@@ -147,6 +149,7 @@ const Main = () => {
             </div>
           </div>
         </div>
+        }
         <div>
           <div
             className=" rounded-2xl md:w-400 p-4 m-3 bg-white flex local-bootstrap"
@@ -165,7 +168,7 @@ const Main = () => {
                 </div>
                 <div className="form-group flex justify-between items-center mt-4">        
                   <div className="flex flex-wrap gap-10 col-sm-offset-2 col-sm-10">
-                    <button type="submit" className="btn btn-success">Отправить</button>
+                    <button type="submit" className="btn btn-success" onClick={() => setShowResults(true)}>Отправить</button>
 
                     {prediction && <div className="flex flex-wrap gap-4">
                         <img src={prediction.img_path} height="400px" width="400px" />
@@ -178,11 +181,10 @@ const Main = () => {
             </div>
 
           </div>
-
         </div>
       </div>
 
-      
+      {showResults && 
 
       <div className="flex gap-10 m-4 flex-wrap justify-center">
     
@@ -317,6 +319,7 @@ const Main = () => {
           </div>
         </div>
       </div>
+      }
     </div>
   );
 };
