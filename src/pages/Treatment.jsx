@@ -1,4 +1,11 @@
 import React from 'react';
+import 'react-dropzone-uploader/dist/styles.css'
+import Dropzone from 'react-dropzone-uploader'
+import '../App.css'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCloudUploadAlt } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
+
 import { IoIosMore } from 'react-icons/io';
 import { BsShield } from 'react-icons/bs';
 import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
@@ -19,6 +26,21 @@ const DropDown = ({ currentMode }) => (
 
 const Treatment = () => {
   const { currentColor, currentMode } = useStateContext();
+  const [analysis, setAnalysis] = useState(null)
+
+  // specify upload params and url for your files
+  const getUploadParams = ({ meta }) => { return { url: 'https://httpbin.org/post' } }
+
+  // called every time a file's `status` changes
+  const handleChangeStatus = ({ meta, file }, status) => { console.log(status, meta, file) }
+  
+  // receives array of files that are done uploading when submit button is clicked
+  const handleSubmit = (files, allFiles) => { 
+    console.log(files.map(f => f.meta)) 
+    allFiles.forEach(f => f.remove())
+    setAnalysis(true)
+    console.log(analysis) 
+  }
 
   return (
     <div className="mt-24">
@@ -69,10 +91,39 @@ const Treatment = () => {
           ))}
         </div>
       </div>
-
-      {/* Краткое изложение назначенного лечения */}
+      {!analysis && (
+      <div className="flex flex-wrap lg:flex-nowrap justify-center m-4 ">
+        <div className="md:w-760 md:h-50">
+          <div className="dropzone">
+          <Dropzone
+          getUploadParams={getUploadParams}
+          onChangeStatus={handleChangeStatus}
+          onSubmit={handleSubmit}
+          onClick={() => setAnalysis(true)}
+          submitButtonContent="Отправить"
+          inputWithFilesContent="Загрузить ещё"
+          inputContent=<div>
+          <FontAwesomeIcon
+            className="customIcon"
+            style={{
+              color: "rgb(243, 243, 243)",
+              fontSize: "50px",
+              margin: "10px 150px"
+            }}
+            icon={faCloudUploadAlt}
+          />
+          <p>Перетащите анализы сюда или нажмите, чтобы загрузить</p>
+        </div>
+          accept="application/pdf,image/*,audio/*,video/*"
+          />
+          </div>
+        </div>
+      </div>
+      )}
+      {analysis && <div className="flex gap-10 m-4 flex-wrap justify-center">
       <div className="flex gap-10 m-4 flex-wrap justify-center">
-      <div className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
+        {/* Краткое изложение назначенного лечения */}
+        <div className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
           <div className="flex justify-between">
             <p className="text-xl font-semibold">Рекомендованное Лечение</p>
             <button type="button" className="text-xl font-semibold text-gray-500">
@@ -114,7 +165,7 @@ const Treatment = () => {
         </div>
       </div>
 
-      {/* Доска с детальным описание (1) медикаментозная терапия и (2) терапии */}
+      {/* Доска с детальным описание (1) медикаментозная терапия и (2) терапии */ }
       <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
         <Header category="Анализ МедСистемы AI" title="Схема Лечения" />
         <KanbanComponent
@@ -160,6 +211,8 @@ const Treatment = () => {
           </div>
         </div>
       </div>
+      </div>
+      }
     </div>
   );
 };

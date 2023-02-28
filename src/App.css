@@ -31,3 +31,34 @@
 .local-bootstrap {
   @import url("https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css");
 }
+
+.dropzone {
+  text-align: center;
+  padding: 20px;
+  border: 3px dashed #eeeeee;
+  background-color: white;
+  color: #bdbdbd;
+
+  margin-bottom: 20px;
+}
+
+.selected-file-wrapper {
+  text-align: center;
+}
+
+.selected-file {
+  color: #000; 
+  font-weight: bold;
+}
+
+.dzu-dropzone {
+  border: none;
+}
+
+.dzu-inputLabel {
+  color: #9aa3ae;
+}
+
+.dzu-submitButton {
+  background-color: #04c9d7;
+}
