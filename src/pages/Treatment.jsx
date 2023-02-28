@@ -94,7 +94,17 @@ const Treatment = () => {
       {!showTreatmentPlan && (
       <div className="flex flex-wrap lg:flex-nowrap justify-center m-4 ">
         <div className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
-          <div className="flex justify-between">
+        <p className="font-semibold text-lg">Загрузите анализы пациента</p>
+              <p className="text-gray-400 ">для обработки ИИ системой:</p>
+              <div className="mt-4 text-sm text-gray-400">
+                <ul className='m-3'>
+                  <li>- биопсия кожи </li>
+                  <li>- анализ крови </li>
+                  <li>- коагулограмма </li>
+                  <li>- ПЭТ-КТ </li>             
+                </ul>
+              </div>
+          {/* <div className="flex justify-between">
             <p className="text-xl font-semibold">Загрузите анализы пациента</p>
           </div>
           <div className="mt-4">
@@ -107,7 +117,7 @@ const Treatment = () => {
                 <li>- ПЭТ-КТ </li>             
               </ul>
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="md:w-760 md:h-50 m-8">
           <div className="dropzone">
