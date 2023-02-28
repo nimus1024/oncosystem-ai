@@ -443,11 +443,11 @@ export const employeesGrid = [
     textAlign: 'Center',
   },
   { field: 'Title',
-    headerText: 'Полис',
+    headerText: 'Полис ОМС',
     width: '170',
     textAlign: 'Center',
   },
-  { headerText: 'Country',
+  { headerText: 'Наблюдение',
     width: '120',
     textAlign: 'Center',
     template: gridEmployeeCountry 
@@ -1457,9 +1457,9 @@ export const employeesData = [
   {
     EmployeeID: 3,
     Name: 'Макарова Полина Алексеевна',
-    Title: 'HR',
+    Title: '1271456783000000',
     HireDate: '01/02/2021',
-    Country: 'USA',
+    Country: 'ГБУЗ "ГКОБ № 1 ДЗМ"',
     ReportsTo: 'Carson',
     EmployeeImage:
       avatar4,
@@ -1467,9 +1467,9 @@ export const employeesData = [
   {
     EmployeeID: 3,
     Name: 'Дьякова Анна Георговна',
-    Title: 'HR',
+    Title: '147454782000000',
     HireDate: '01/02/2021',
-    Country: 'USA',
+    Country: 'ГБУЗ "ГКОБ № 1 ДЗМ"',
     ReportsTo: 'Carson',
     EmployeeImage:
       avatar5,
@@ -1477,9 +1477,9 @@ export const employeesData = [
   {
     EmployeeID: 1,
     Name: 'Смирнов Александр Ильич',
-    Title: 'Sales Representative',
+    Title: '123456789000000',
     HireDate: '01/02/2021',
-    Country: 'USA',
+    Country: 'ГБУЗ "ГКОБ № 1 ДЗМ"',
     ReportsTo: 'Carson',
     EmployeeImage:
     avatar6,
@@ -1487,9 +1487,9 @@ export const employeesData = [
   {
     EmployeeID: 2,
     Name: 'Беляев Егор Петров',
-    Title: 'Marketing Head',
+    Title: '117454782000000',
     HireDate: '01/02/2021',
-    Country: 'USA',
+    Country: 'ГБУЗ "ГКОБ № 1 ДЗМ"',
     ReportsTo: 'Carson',
     EmployeeImage:
       avatar7,
@@ -1497,9 +1497,9 @@ export const employeesData = [
   {
     EmployeeID: 3,
     Name: 'Богданова Мария Евгеньевна',
-    Title: 'HR',
+    Title: '123456789000000',
     HireDate: '01/02/2021',
-    Country: 'USA',
+    Country: 'ГБУЗ "ГКОБ № 1 ДЗМ"',
     ReportsTo: 'Carson',
     EmployeeImage:
       avatar3,
@@ -1507,9 +1507,9 @@ export const employeesData = [
   {
     EmployeeID: 4,
     Name: 'Крапивина Ирина Алексеевна',
-    Title: 'Marketing Head',
+    Title: '156454912000000',
     HireDate: '01/02/2021',
-    Country: 'USA',
+    Country: 'ГБУЗ "ГКОБ № 1 ДЗМ"',
     ReportsTo: 'Carson',
     EmployeeImage:
       avatar2,
@@ -1517,9 +1517,9 @@ export const employeesData = [
   {
     EmployeeID: 5,
     Name: 'Карпов Альберт Фёдорович ',
-    Title: 'HR',
+    Title: '127454782000000',
     HireDate: '01/02/2021',
-    Country: 'USA',
+    Country: 'ГБУЗ "ГКОБ № 1 ДЗМ"',
     ReportsTo: 'Carson',
     EmployeeImage:
       avatar,

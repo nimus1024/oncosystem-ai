@@ -26,7 +26,7 @@ const DropDown = ({ currentMode }) => (
 
 const Treatment = () => {
   const { currentColor, currentMode } = useStateContext();
-  const [analysis, setAnalysis] = useState(null)
+  const [showTreatmentPlan, setShowTreatmentPlan] = useState(null)
 
   // specify upload params and url for your files
   const getUploadParams = ({ meta }) => { return { url: 'https://httpbin.org/post' } }
@@ -38,8 +38,8 @@ const Treatment = () => {
   const handleSubmit = (files, allFiles) => { 
     console.log(files.map(f => f.meta)) 
     allFiles.forEach(f => f.remove())
-    setAnalysis(true)
-    console.log(analysis) 
+    setShowTreatmentPlan(true)
+    console.log(showTreatmentPlan) 
   }
 
   return (
@@ -91,16 +91,32 @@ const Treatment = () => {
           ))}
         </div>
       </div>
-      {!analysis && (
+      {!showTreatmentPlan && (
       <div className="flex flex-wrap lg:flex-nowrap justify-center m-4 ">
-        <div className="md:w-760 md:h-50">
+        <div className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
+          <div className="flex justify-between">
+            <p className="text-xl font-semibold">Загрузите анализы пациента</p>
+          </div>
+          <div className="mt-4">
+            <div className="text-m p-4">
+              <p> Необходимые данные для обработки ИИ системой:</p> 
+              <ul className='m-3'>
+                <li>- биопсия кожи </li>
+                <li>- анализ крови </li>
+                <li>- коагулограмма </li>
+                <li>- ПЭТ-КТ </li>             
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="md:w-760 md:h-50 m-8">
           <div className="dropzone">
           <Dropzone
           getUploadParams={getUploadParams}
           onChangeStatus={handleChangeStatus}
           onSubmit={handleSubmit}
-          onClick={() => setAnalysis(true)}
-          submitButtonContent="Отправить"
+          onClick={() => setShowTreatmentPlan(true)}
+          submitButtonContent="Составить план лечения"
           inputWithFilesContent="Загрузить ещё"
           inputContent=<div>
           <FontAwesomeIcon
@@ -120,7 +136,7 @@ const Treatment = () => {
         </div>
       </div>
       )}
-      {analysis && <div className="flex gap-10 m-4 flex-wrap justify-center">
+      {showTreatmentPlan && <div className="flex gap-10 m-4 flex-wrap justify-center">
       <div className="flex gap-10 m-4 flex-wrap justify-center">
         {/* Краткое изложение назначенного лечения */}
         <div className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
