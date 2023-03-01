@@ -36,7 +36,7 @@ isic image download --limit 0 --search 'benign_malignant:malignant' images/malig
 
 ## Step 4. Start Flask app.py backend 
 ```
-python app.py
+python main.py
 ```
 ## Step 4. Opena another terminal and start React npm app to launch the website 
 ```
