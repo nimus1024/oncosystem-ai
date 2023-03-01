@@ -433,7 +433,7 @@ export const customersGrid = [
 ];
 
 export const employeesGrid = [
-  { headerText: 'Employee',
+  { headerText: 'Имя',
     width: '150',
     template: gridEmployeeProfile,
     textAlign: 'Center' },
@@ -453,7 +453,7 @@ export const employeesGrid = [
     template: gridEmployeeCountry 
   },
   { field: 'ReportsTo',
-    headerText: 'Reports To',
+    headerText: '_',
     width: '120',
     textAlign: 'Center' },
   { field: 'Прием',
@@ -1460,7 +1460,7 @@ export const employeesData = [
     Title: '1271456783000000',
     HireDate: '01/02/2021',
     Country: 'ГБУЗ "ГКОБ № 1 ДЗМ"',
-    ReportsTo: 'Carson',
+    ReportsTo: '',
     EmployeeImage:
       avatar4,
   },
@@ -1470,7 +1470,7 @@ export const employeesData = [
     Title: '147454782000000',
     HireDate: '01/02/2021',
     Country: 'ГБУЗ "ГКОБ № 1 ДЗМ"',
-    ReportsTo: 'Carson',
+    ReportsTo: '',
     EmployeeImage:
       avatar5,
   },
@@ -1480,7 +1480,7 @@ export const employeesData = [
     Title: '123456789000000',
     HireDate: '01/02/2021',
     Country: 'ГБУЗ "ГКОБ № 1 ДЗМ"',
-    ReportsTo: 'Carson',
+    ReportsTo: '',
     EmployeeImage:
     avatar6,
   },
@@ -1490,7 +1490,7 @@ export const employeesData = [
     Title: '117454782000000',
     HireDate: '01/02/2021',
     Country: 'ГБУЗ "ГКОБ № 1 ДЗМ"',
-    ReportsTo: 'Carson',
+    ReportsTo: '',
     EmployeeImage:
       avatar7,
   },
@@ -1500,7 +1500,7 @@ export const employeesData = [
     Title: '123456789000000',
     HireDate: '01/02/2021',
     Country: 'ГБУЗ "ГКОБ № 1 ДЗМ"',
-    ReportsTo: 'Carson',
+    ReportsTo: '',
     EmployeeImage:
       avatar3,
   },
@@ -1510,7 +1510,7 @@ export const employeesData = [
     Title: '156454912000000',
     HireDate: '01/02/2021',
     Country: 'ГБУЗ "ГКОБ № 1 ДЗМ"',
-    ReportsTo: 'Carson',
+    ReportsTo: '',
     EmployeeImage:
       avatar2,
   },
@@ -1520,7 +1520,7 @@ export const employeesData = [
     Title: '127454782000000',
     HireDate: '01/02/2021',
     Country: 'ГБУЗ "ГКОБ № 1 ДЗМ"',
-    ReportsTo: 'Carson',
+    ReportsTo: '',
     EmployeeImage:
       avatar,
   },
