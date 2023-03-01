@@ -34,9 +34,12 @@ isic image download --limit 0 --search 'benign_malignant:benign' images/benign
 isic image download --limit 0 --search 'benign_malignant:malignant' images/malignant 
 ```
 
-## Step 4. Start Flask app.py for backend and React npm app to launch the website 
+## Step 4. Start Flask app.py backend 
 ```
 python app.py
+```
+## Step 4. Opena another terminal and start React npm app to launch the website 
+```
 # delete package-lock.json
 npm install
 npm start
