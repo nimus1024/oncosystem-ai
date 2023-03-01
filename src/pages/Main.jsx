@@ -23,7 +23,6 @@ const Main = () => {
   const { currentColor, currentMode } = useStateContext();
   const [prediction, setPredictionData] = useState(null);
   const [file, setFile] = useState()
-  const [showResults, setShowResults] = useState(null)
 
   function handleFileSelected(Event) {
     setFile(Event.target.files[0])
@@ -45,7 +44,9 @@ const Main = () => {
       .then((response) => {
         const res = response.data
         setPredictionData(({
-          prediction: res.prediction,
+          prediction_label: res.prediction_label,
+          probability: res.probability,
+          opposite_probability: res.opposite_probability,
           img_path: res.img_path
         }))
       }).catch((error) => {
@@ -106,9 +107,8 @@ const Main = () => {
           ))}
         </div>
       </div>
-
       <div className="flex gap-10 flex-wrap justify-center mt-6">
-        {showResults && 
+        {prediction && 
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780  ">
           <div className="flex justify-between">
             <p className="font-semibold text-xl">Статистика заболевания</p>
@@ -122,14 +122,14 @@ const Main = () => {
             <div className=" border-r-1 border-color m-4 pr-10">
               <div>
                 <p>
-                  <span className="text-3xl font-semibold">87%</span>
+                  <span className="text-3xl font-semibold">{prediction.probability}%</span>
                 </p>
                 <p className="text-gray-500 mt-1">Меланома</p>
               </div>
               <div className="mt-8">
-                <p className="text-3xl font-semibold">13%</p>
+                <p className="text-3xl font-semibold">{prediction.opposite_probability}%</p>
 
-                <p className="text-gray-500 mt-1">Не меланома</p>
+                <p className="text-gray-500 mt-1">Доброкачественное образование</p>
               </div>
 
               <div className="mt-5">
@@ -168,11 +168,11 @@ const Main = () => {
                 </div>
                 <div className="form-group flex justify-between items-center mt-4">        
                   <div className="flex flex-wrap gap-10 col-sm-offset-2 col-sm-10">
-                    <button type="submit" className="btn btn-success" onClick={() => setShowResults(true)}>Отправить</button>
+                    <button type="submit" className="btn btn-success">Отправить</button>
 
                     {prediction && <div className="flex flex-wrap gap-4">
                         <img src={prediction.img_path} height="400px" width="400px" />
-                        <p className="font-semibold text-xl">Предсказание  : <i> {prediction.prediction} </i></p>
+                        <p className="font-semibold text-xl">Предсказание  : <i> {prediction.prediction_label} </i></p>
                       </div>
                     }
                   </div>
@@ -184,7 +184,7 @@ const Main = () => {
         </div>
       </div>
 
-      {showResults && 
+      {prediction && 
 
       <div className="flex gap-10 m-4 flex-wrap justify-center">
     

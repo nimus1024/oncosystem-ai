@@ -3,6 +3,7 @@ from keras.models import load_model
 import keras.utils as image
 from keras.applications.imagenet_utils import decode_predictions 
 import numpy as np
+import math
 
 app = Flask(__name__)
 
@@ -16,11 +17,11 @@ def predict_label(img_path):
 	i = image.img_to_array(i)
 	i = np.expand_dims(i, axis = 0)
 	p = model.predict(i)
-	print(p, img_path)
+	print(math.floor(p[0][0] * 100), img_path)
 	if p[0][0] > p[0][1]:
-		return "benign"
+		return ["доброкачественная", math.floor(p[0][0] * 100)]
 	else:
-		return "malignant"
+		return ["меланома", math.floor(p[0][1] * 100)]
 
 # routes
 # @app.route("/", methods=['GET', 'POST'])
@@ -41,9 +42,10 @@ def get_output():
 		img_path = "static/" + img.filename
 		img.save(img_path)
 
-		p = predict_label(img_path)
-		print(p)
-	return {"prediction" : p, "img_path" : img_path}
+		res = predict_label(img_path)
+		print(res[1])
+		opposite_prob = 100 - res[1]
+	return {"prediction_label" : res[0], "probability": res[1], "opposite_probability": opposite_prob, "img_path" : img_path}
 
 if __name__ =='__main__':
 	#app.debug = True
