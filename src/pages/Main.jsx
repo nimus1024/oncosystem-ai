@@ -45,8 +45,8 @@ const Main = () => {
         const res = response.data
         setPredictionData(({
           prediction_label: res.prediction_label,
-          probability: res.probability,
-          opposite_probability: res.opposite_probability,
+          benign_probability: res.benign_probability,
+          malignant_probability: res.malignant_probability,
           img_path: res.img_path
         }))
       }).catch((error) => {
@@ -122,12 +122,12 @@ const Main = () => {
             <div className=" border-r-1 border-color m-4 pr-10">
               <div>
                 <p>
-                  <span className="text-3xl font-semibold">{prediction.probability}%</span>
+                  <span className="text-3xl font-semibold">{prediction.malignant_probability}%</span>
                 </p>
                 <p className="text-gray-500 mt-1">Меланома</p>
               </div>
               <div className="mt-8">
-                <p className="text-3xl font-semibold">{prediction.opposite_probability}%</p>
+                <p className="text-3xl font-semibold">{prediction.benign_probability}%</p>
 
                 <p className="text-gray-500 mt-1">Доброкачественное образование</p>
               </div>
