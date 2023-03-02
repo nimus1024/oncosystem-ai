@@ -76,63 +76,8 @@ const Treatment = () => {
           ))}
         </div>
       </div>
-      {!showTreatmentPlan && (
-      <div className="flex flex-wrap lg:flex-nowrap justify-center m-4 ">
-        <div className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
-        <p className="font-semibold text-lg">Загрузите анализы пациента</p>
-              <p className="text-gray-400 ">для обработки ИИ системой:</p>
-              <div className="mt-4 text-sm text-gray-400">
-                <ul className='m-3'>
-                  <li>- биопсия кожи </li>
-                  <li>- анализ крови </li>
-                  <li>- коагулограмма </li>
-                  <li>- ПЭТ-КТ </li>             
-                </ul>
-              </div>
-          {/* <div className="flex justify-between">
-            <p className="text-xl font-semibold">Загрузите анализы пациента</p>
-          </div>
-          <div className="mt-4">
-            <div className="text-m p-4">
-              <p> Необходимые данные для обработки ИИ системой:</p> 
-              <ul className='m-3'>
-                <li>- биопсия кожи </li>
-                <li>- анализ крови </li>
-                <li>- коагулограмма </li>
-                <li>- ПЭТ-КТ </li>             
-              </ul>
-            </div>
-          </div> */}
-        </div>
-        <div className="md:w-760 md:h-50 m-8">
-          <div className="dropzone">
-          <Dropzone
-          getUploadParams={getUploadParams}
-          onChangeStatus={handleChangeStatus}
-          onSubmit={handleSubmit}
-          onClick={() => setShowTreatmentPlan(true)}
-          submitButtonContent="Составить план лечения"
-          inputWithFilesContent="Загрузить ещё"
-          inputContent=<div>
-          <FontAwesomeIcon
-            className="customIcon"
-            style={{
-              color: "rgb(243, 243, 243)",
-              fontSize: "50px",
-              margin: "10px 150px"
-            }}
-            icon={faCloudUploadAlt}
-          />
-          <p>Перетащите анализы сюда или нажмите, чтобы загрузить</p>
-        </div>
-          accept="application/pdf,image/*,audio/*,video/*"
-          />
-          </div>
-        </div>
-      </div>
-      )}
-      {showTreatmentPlan && <div className="flex gap-10 m-4 flex-wrap justify-center">
-      <div className="flex gap-10 m-4 flex-wrap justify-center">
+
+      {/* Краткое изложение назначенного лечения */}
       <div className="flex gap-10 m-4 flex-wrap justify-center">
       <div className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
           <div className="flex justify-between">
@@ -213,7 +158,6 @@ const Treatment = () => {
           </div>
         </div>
       </div>
-      }
     </div>
   );
 };
