@@ -825,7 +825,7 @@ export const userProfileData = [
   },
   {
     icon: <BsShield />,
-    title: '',
+    title: 'Расписание',
     desc: '',
     iconColor: 'rgb(0, 194, 146)',
     iconBg: 'rgb(235, 250, 242)',
