@@ -453,10 +453,6 @@ export const employeesGrid = [
     textAlign: 'Center',
     template: gridEmployeeCountry 
   },
-  { field: 'ReportsTo',
-    headerText: '_',
-    width: '120',
-    textAlign: 'Center' },
   { field: 'Date',
     headerText: 'Ближайший прием',
     width: '125',
