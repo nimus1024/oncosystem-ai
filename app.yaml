@@ -6,6 +6,9 @@ handlers:
   
 entrypoint: gunicorn -b :$PORT main:app 
 
+runtime_config:
+    python_version: 3.7
+
 env_variables:
   GCLOUD_STORAGE_BUCKET: cancer_treatment
   GOOGLE_CLOUD_PROJECT: glowing-program-379304
