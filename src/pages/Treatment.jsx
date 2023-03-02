@@ -86,29 +86,20 @@ const Treatment = () => {
               <IoIosMore />
             </button>
           </div>
-          <div className="mt-10">
-            <img
-              className="md:w-96 h-50 "
-              src={product9}
-              alt=""
-            />
             <div className="mt-8">
-              <p className="font-semibold text-lg">React 18 coming soon!</p>
-              <p className="text-gray-400 ">By Johnathan Doe</p>
+              <p className="font-semibold text-lg"></p>
+              <p className="text-gray-400 "></p>
               <p className="mt-8 text-sm text-gray-400">
-                This will be the small description for the news you have shown
-                here. There could be some great info.
               </p>
               <div className="mt-3">
                 <Button
                   color="white"
                   bgColor={currentColor}
-                  text="Read More"
+                  text=""
                   borderRadius="10px"
                 />
               </div>
             </div>
-          </div>
         </div>
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl w-96 md:w-760">
           <div className="flex justify-between items-center gap-2 mb-10">
@@ -125,7 +116,7 @@ const Treatment = () => {
       <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
         <Header category="Анализ МедСистемы AI" title="Схема Лечения" />
         <KanbanComponent
-          id="kanban"
+          id="kanban  "
           keyField="Status"
           dataSource={kanbanData}
           cardSettings={{ contentField: 'Summary', headerField: 'Id' }}
