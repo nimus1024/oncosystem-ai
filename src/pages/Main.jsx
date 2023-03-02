@@ -222,15 +222,14 @@ const Main = () => {
           </div>
 
         </div>
-        <div className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
-          <div className="flex justify-between">
+        <div className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-4 m-2">
+          <div className="flex gap-4 items-center gap-2">
             <p className="text-xl font-semibold">Направление</p>
             <button type="button" className="text-xl font-semibold text-gray-400">
               <IoIosMore />
             </button>
           </div>
-          <p className="text-xs cursor-pointer hover:drop-shadow-xl font-semibold rounded-lg w-25 bg-orange-400 py-0.7 px-2 text-gray-200 mt-20">
-            Среда (3 мая 2023)
+          <p className="text-2xl rounded-lg p-4 hover:drop-shadow-xl">
           </p>
 
           <div>
@@ -242,17 +241,23 @@ const Main = () => {
             
             ))}
           
-          </div>
           <div className="border-b-1 border-color pb-4 mt-2">
-            <p className="text-md font-semibold mb-2">Место</p>
+            <p className="text-md font-semibold mb-2">Дата</p>
             <div className="flex gap-4">
-            
+            <p className="text-gray-500 mt-1">3 марта, пятница</p>
             </div>
           </div>
           <div className="border-b-1 border-color pb-4 mt-2">
             <p className="text-md font-semibold mb-2">Время</p>
             <div className="flex gap-4">
-            
+            <p className="text-gray-500 mt-1">15:00</p>
+            </div>
+          </div>
+          </div>
+          <div className="border-b-1 border-color pb-4 mt-2">
+            <p className="text-md font-semibold mb-2">Место</p>
+            <div className="flex gap-4">
+            <p className="text-gray-500 mt-1">ГБУЗ “ГКОБ №1 ДЗМ</p>
             </div>
           </div>
           <div className="mt-2">
