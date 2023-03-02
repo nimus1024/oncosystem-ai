@@ -56,7 +56,7 @@ const UserProfile = () => {
         <Button
           color="white"
           bgColor={currentColor}
-          text="Logout"
+          text="Изменть профиль"
           borderRadius="10px"
           width="full"
         />
