@@ -9,8 +9,6 @@ import os
 
 app = Flask(__name__)
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "glowing-program-379304-00f032baaa6d.json"
-
 # get model
 model = load_model("gs://cancer_treatment/saved_model")
 
