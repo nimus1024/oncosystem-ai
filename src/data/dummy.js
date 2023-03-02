@@ -1,12 +1,13 @@
 import React from 'react';
-import { AiOutlineCalendar, AiOutlineShoppingCart, AiOutlineAreaChart, AiOutlineBarChart, AiOutlineStock } from 'react-icons/ai';
-import { FiShoppingBag, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, FiShoppingCart } from 'react-icons/fi';
+import { AiOutlineCalendar, AiOutlineShoppingCart, AiOutlineAreaChart, AiOutlineBarChart, AiOutlineStock, AiFillExclamationCircle, AiOutlineTeam } from 'react-icons/ai';
+import { FiShoppingBag, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, FiShoppingCart, FiAlertTriangle } from 'react-icons/fi';
 import { BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft, BsFileEarmarkMedical, BsFillPersonFill, BsAsterisk, BsFillCalendarEventFill } from 'react-icons/bs';
-import { BiColorFill } from 'react-icons/bi';
+import { BiColorFill, BiDroplet } from 'react-icons/bi';
 import { IoMdContacts } from 'react-icons/io';
 import { RiContactsLine, RiStockLine } from 'react-icons/ri';
-import { MdOutlineSupervisorAccount } from 'react-icons/md';
+import { MdOutlineSupervisorAccount, MdOutlineFullscreen } from 'react-icons/md';
 import { HiOutlineRefresh } from 'react-icons/hi';
+import { TbMicroscope, TbDna, TbReportAnalytics } from 'react-icons/tb'
 import { TiTick } from 'react-icons/ti';
 import { GiLouvrePyramid } from 'react-icons/gi';
 import { GrLocation } from 'react-icons/gr';
@@ -213,7 +214,7 @@ export const areaCustomSeries = [
     dataSource: areaChartData[0],
     xName: 'x',
     yName: 'y',
-    name: 'USA',
+    name: '',
     opacity: '0.8',
     type: 'SplineArea',
     width: '2',
@@ -223,7 +224,7 @@ export const areaCustomSeries = [
     dataSource: areaChartData[1],
     xName: 'x',
     yName: 'y',
-    name: 'France',
+    name: '',
     opacity: '0.8',
     type: 'SplineArea',
     width: '2',
@@ -232,7 +233,7 @@ export const areaCustomSeries = [
     dataSource: areaChartData[2],
     xName: 'x',
     yName: 'y',
-    name: 'Germany',
+    name: '',
     opacity: '0.8',
     type: 'SplineArea',
     width: '2',
@@ -456,8 +457,8 @@ export const employeesGrid = [
     headerText: '_',
     width: '120',
     textAlign: 'Center' },
-  { field: 'Прием',
-    headerText: 'Прием',
+  { field: 'Date',
+    headerText: 'Ближайший прием',
     width: '125',
     textAlign: 'Center' },
 ];
@@ -648,15 +649,15 @@ export const earningData = [
 
 export const recentTransactions = [
   {
-    icon: <BsCurrencyDollar />,
+    icon: <MdOutlineFullscreen />,
     title: 'Первоначальный скрининг в кабинете онколога',
-    desc: 'Money Added',
+    desc: '',
     iconColor: '#03C9D7',
     iconBg: '#E5FAFB',
     pcColor: 'green-600',
   },
   {
-    icon: <BsShield />,
+    icon: <BiDroplet />,
     desc: '',
     title: 'Общий анализ крови',
     iconColor: 'rgb(0, 194, 146)',
@@ -664,28 +665,28 @@ export const recentTransactions = [
     pcColor: 'red-600',
   },
   {
-    icon: <FiCreditCard />,
+    icon: <TbMicroscope/>,
     title: 'Биопсия кожи',
-    desc: 'Money reversed',
+    desc: '',
     iconColor: 'rgb(255, 244, 229)',
     iconBg: 'rgb(254, 201, 15)',
 
     pcColor: 'green-600',
   },
   {
-    icon: <TiTick />,
+    icon: <TbDna />,
     title: ' Анализ "Исследование уровня белка S-100"',
-    desc: 'Money Added',
+    desc: '',
 
     iconColor: 'rgb(228, 106, 118)',
     iconBg: 'rgb(255, 244, 229)',
     pcColor: 'green-600',
   },
   {
-    icon: <BsCurrencyDollar />,
-    percentage: '+38%',
+    icon: <TbReportAnalytics />,
+    percentage: '',
     title: 'Консультация с онкологом, получение заключения',
-    desc: 'Payment Sent',
+    desc: '',
     iconColor: '#03C9D7',
     iconBg: '#E5FAFB',
     pcColor: 'red-600',
@@ -694,28 +695,28 @@ export const recentTransactions = [
 
 export const weeklyStats = [
   {
-    icon: <FiShoppingCart />,
-    amount: '-$560',
+    icon: <FiAlertTriangle />,
+    amount: '',
     title: 'В повышенной группе риска',
     desc: '',
     iconBg: '#FB9678',
     pcColor: 'red-600',
   },
   {
-    icon: <FiStar />,
-    amount: '-$560',
+    icon: <AiFillExclamationCircle />,
+    amount: '',
+    title: 'Подозрение на меланому III степени',
+    desc: '',
+    iconBg: '#00C292',
+    pcColor: 'green-600',
+  },
+  {
+    icon: <MdOutlineFullscreen />,
+    amount: '',
     title: 'Необходимо пройти скрининг у онколога',
     desc: '',
     iconBg: 'rgb(254, 201, 15)',
     pcColor: 'red-600',
-  },
-  {
-    icon: <BsChatLeft />,
-    amount: '+$560',
-    title: 'Подозрение на меланому 1 степени',
-    desc: '',
-    iconBg: '#00C292',
-    pcColor: 'green-600',
   },
 ];
 
@@ -820,23 +821,23 @@ export const themeColors = [
 
 export const userProfileData = [
   {
-    icon: <BsCurrencyDollar />,
-    title: 'My Profile',
-    desc: 'Account Settings',
+    icon: <AiOutlineTeam />,
+    title: 'Новые пациенты',
+    desc: 'Макарова П.А., Дьякова А.Г.',
     iconColor: '#03C9D7',
     iconBg: '#E5FAFB',
   },
   {
     icon: <BsShield />,
-    title: 'My Inbox',
-    desc: 'Messages & Emails',
+    title: '',
+    desc: '',
     iconColor: 'rgb(0, 194, 146)',
     iconBg: 'rgb(235, 250, 242)',
   },
   {
     icon: <FiCreditCard />,
-    title: 'My Tasks',
-    desc: 'To-do and Daily Tasks',
+    title: 'Операции',
+    desc: '',
     iconColor: 'rgb(255, 244, 229)',
     iconBg: 'rgb(254, 201, 15)',
   },
@@ -1461,6 +1462,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'ГБУЗ "ГКОБ № 1 ДЗМ"',
     ReportsTo: '',
+    Date: '05.03.2023',
     EmployeeImage:
       avatar4,
   },
@@ -1471,6 +1473,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'ГБУЗ "ГКОБ № 1 ДЗМ"',
     ReportsTo: '',
+    Date: '10.03.2023',
     EmployeeImage:
       avatar5,
   },
@@ -1480,6 +1483,7 @@ export const employeesData = [
     Title: '123456789000000',
     HireDate: '01/02/2021',
     Country: 'ГБУЗ "ГКОБ № 1 ДЗМ"',
+    Date: '12.03.2023',
     ReportsTo: '',
     EmployeeImage:
     avatar6,
@@ -1490,6 +1494,7 @@ export const employeesData = [
     Title: '117454782000000',
     HireDate: '01/02/2021',
     Country: 'ГБУЗ "ГКОБ № 1 ДЗМ"',
+    Date: '20.03.2023',
     ReportsTo: '',
     EmployeeImage:
       avatar7,
@@ -1500,6 +1505,7 @@ export const employeesData = [
     Title: '123456789000000',
     HireDate: '01/02/2021',
     Country: 'ГБУЗ "ГКОБ № 1 ДЗМ"',
+    Date: '01.04.2023',
     ReportsTo: '',
     EmployeeImage:
       avatar3,
@@ -1510,6 +1516,7 @@ export const employeesData = [
     Title: '156454912000000',
     HireDate: '01/02/2021',
     Country: 'ГБУЗ "ГКОБ № 1 ДЗМ"',
+    Date: '02.04.2023',
     ReportsTo: '',
     EmployeeImage:
       avatar2,
@@ -1520,6 +1527,7 @@ export const employeesData = [
     Title: '127454782000000',
     HireDate: '01/02/2021',
     Country: 'ГБУЗ "ГКОБ № 1 ДЗМ"',
+    Date: '05.04.2023',
     ReportsTo: '',
     EmployeeImage:
       avatar,
@@ -2578,7 +2586,7 @@ export const stackedCustomSeries = [
   { dataSource: stackedChartData[0],
     xName: 'x',
     yName: 'y',
-    name: 'Budget',
+    name: '',
     type: 'StackingColumn',
     background: 'blue',
 
@@ -2587,7 +2595,7 @@ export const stackedCustomSeries = [
   { dataSource: stackedChartData[1],
     xName: 'x',
     yName: 'y',
-    name: 'Expense',
+    name: '',
     type: 'StackingColumn',
     background: 'red',
 
