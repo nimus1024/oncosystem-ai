@@ -25,10 +25,12 @@ def predict_label(img_path):
 	i = np.expand_dims(i, axis = 0)
 	p = model.predict(i)
 	print(math.floor(p[0][0] * 100), img_path)
-	if p[0][0] > p[0][1]:
-		return ["доброкачественная", math.floor(p[0][0] * 100)]
+	benign = math.floor(p[0][0] * 100)
+	malignant = 100 - benign
+	if benign > malignant:
+		return ["доброкачественная", benign, malignant]
 	else:
-		return ["меланома", math.floor(p[0][1] * 100)]
+		return ["меланома", benign, malignant]
 
 # routes
 # @app.route("/", methods=['GET', 'POST'])
@@ -50,9 +52,7 @@ def get_output():
 		img.save(img_path)
 
 		res = predict_label(img_path)
-		print(res[1])
-		opposite_prob = 100 - res[1]
-	return {"prediction_label" : res[0], "probability": res[1], "opposite_probability": opposite_prob, "img_path" : img_path}
+	return {"prediction_label" : res[0], "benign_probability": res[1], "malignant_probability": res[2], "img_path" : img_path}
 
 if __name__ =='__main__':
 	#app.debug = True
