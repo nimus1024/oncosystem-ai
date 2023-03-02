@@ -184,7 +184,7 @@ const Main = () => {
         </div>
       </div>
 
-      {prediction && 
+      {prediction && prediction.malignant_probability > prediction.benign_probability &&
 
       <div className="flex gap-10 m-4 flex-wrap justify-center">
     
