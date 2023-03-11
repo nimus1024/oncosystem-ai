@@ -3,8 +3,17 @@ runtime: python39
 handlers:
 - url: /.*
   script: auto
-  
+# Serve all static files with url ending with a file extension
+- url: /(.*\..+)$
+  static_files: build/\1
+  upload: build/(.*\..+)$
+# Catch all handler to index.html
+- url: /.*
+  static_files: build/index.html
+  upload: build/index.html
+
 entrypoint: python main.py
+
 
 env_variables:
   GCLOUD_STORAGE_BUCKET: cancer_treatment
