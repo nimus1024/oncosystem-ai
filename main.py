@@ -1,19 +1,16 @@
-from flask import Flask, render_template, request
+\from flask import Flask, render_template, request
+from tensorflow import keras
 from keras.models import load_model
 from keras.utils.data_utils import get_file
 import keras.utils as image
 from keras.applications.imagenet_utils import decode_predictions 
 import numpy as np
 import math
-import os
 
 app = Flask(__name__)
 
 # get model
-model = load_model("gs://cancer_treatment/saved_model")
-
-# assign weights
-model.load_weights("gs://cancer_treatment/best_weights")
+model = load_model("gs://cancer_treatment/cancer_pretrained_model.h5")
 
 model.make_predict_function()
 
