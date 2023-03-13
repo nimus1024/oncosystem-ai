@@ -1,5 +1,6 @@
 # app.yaml
 runtime: python39
+
 handlers:
 - url: /.*
   script: auto
@@ -17,4 +18,4 @@ entrypoint: python main.py
 
 env_variables:
   GCLOUD_STORAGE_BUCKET: cancer_treatment
-  GOOGLE_CLOUD_PROJECT: glowing-program-379304
+  GOOGLE_CLOUD_PROJECT: web-app-cancer-treatment
