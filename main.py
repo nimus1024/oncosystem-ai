@@ -8,18 +8,30 @@ import numpy as np
 import math
 import h5py
 import gcsfs
-
+import os
 app = Flask(__name__)
 
-PROJECT_NAME = 'glowing-program-379304'
-CREDENTIALS = 'glowing-program-379304-27f18cfbab2c.json'
-MODEL_PATH = 'gs://cancer_treatment/cancer_pretrained_model.h5'
 
+#os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "glowing-program-379304-00f032baaa6d.json"
+# PROJECT = "CANCER_TREATMENT"
+# REGION = "europe-west2"
+
+#app = Flask(__name__)
+
+# model = load_model('cancer_pretrained_model.h5')
+
+# PROJECT_NAME = 'glowing-program-379304'
+# CREDENTIALS = 'glowing-program-379304-27f18cfbab2c.json'
+# MODEL_PATH = 'gs://cancer_treatment/cancer_pretrained_model.h5'
+
+PROJECT_NAME = 'web-app-cancer-treatment'
+CREDENTIALS = 'web-app-cancer-treatment-90c0c8e4ff2d.json'
+MODEL_PATH = 'gs://pretrained-melanoma-model/cancer_pretrained_model.h5'
 
 FS = gcsfs.GCSFileSystem(project=PROJECT_NAME,
                          token=CREDENTIALS)
 with FS.open(MODEL_PATH, 'rb') as model_file:
-     model_gcs = h5py.File(model_file, 'r)
+     model_gcs = h5py.File(model_file, 'r')
      model = load_model(model_gcs)
 			   
 
@@ -46,7 +58,7 @@ def predict_label(img_path):
 # def main():
 # 	return render_template("index.html")
 
-@app.route("/about")
+@app.route("/")
 def about_page():
 	return "Please subscribe  Artificial Intelligence Hub..!!!"
 
@@ -64,5 +76,7 @@ def get_output():
 	return {"prediction_label" : res[0], "benign_probability": res[1], "malignant_probability": res[2], "img_path" : img_path}
 
 if __name__ =='__main__':
-	#app.debug = True
-	app.run(debug = True)
+	#app.debug = True   
+	# app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
+	app.run(debug=True)
+
