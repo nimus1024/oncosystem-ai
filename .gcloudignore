@@ -18,3 +18,8 @@ __pycache__/
 # Ignored by the build system
 /setup.cfg
 /node_modules
+/public
+/src
+/templates
+/static
+*.ipynb
