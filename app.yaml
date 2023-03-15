@@ -1,21 +1,32 @@
 # app.yaml
-runtime: python39
+
+# runtime: python
+# env: flex
+# entrypoint: gunicorn -b :$PORT main:app --timeout 600
+
+# runtime_config:
+#     operating_system: "ubuntu18"
+#     runtime_version: "3.9"
+
+#standard config
+runtime: python310
+instance_class: F4_1G
+app_engine_apis: true
+
 
 handlers:
 - url: /.*
   script: auto
-# Serve all static files with url ending with a file extension
-- url: /(.*\..+)$
-  static_files: build/\1
-  upload: build/(.*\..+)$
-# Catch all handler to index.html
-- url: /.*
-  static_files: build/index.html
-  upload: build/index.html
-
-entrypoint: python main.py
-
+# # Serve all static files with url ending with a file extension
+# - url: /(.*\..+)$
+#   static_files: build/\1
+#   upload: build/(.*\..+)$
+# # Catch all handler to index.html
+# - url: /.*
+#   static_files: build/index.html
+#   upload: build/index.html
 
 env_variables:
   GCLOUD_STORAGE_BUCKET: cancer_treatment
   GOOGLE_CLOUD_PROJECT: web-app-cancer-treatment
+
