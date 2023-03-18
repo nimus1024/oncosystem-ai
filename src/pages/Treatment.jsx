@@ -26,7 +26,21 @@ const DropDown = ({ currentMode }) => (
 
 const Treatment = () => {
   const { currentColor, currentMode } = useStateContext();
+  const [analysis, setAnalysis] = useState(null)
 
+  // specify upload params and url for your files
+  const getUploadParams = ({ meta }) => { return { url: 'https://httpbin.org/post' } }
+
+  // called every time a file's `status` changes
+  const handleChangeStatus = ({ meta, file }, status) => { console.log(status, meta, file) }
+
+  // receives array of files that are done uploading when submit button is clicked
+  const handleSubmit = (files, allFiles) => { 
+    console.log(files.map(f => f.meta)) 
+    allFiles.forEach(f => f.remove())
+    setAnalysis(true)
+    console.log(analysis) 
+  }
   return (
     <div className="mt-24">
       {/* Карточка пациента. Она должна присутствовать на обоих страницах Главная и на План Лечения */}
@@ -50,7 +64,7 @@ const Treatment = () => {
             <Button
               color="white"
               bgColor={currentColor}
-              text="Download"
+              text="Загрузить"
               borderRadius="10px"
             />
           </div>
@@ -77,8 +91,38 @@ const Treatment = () => {
         </div>
       </div>
 
-      {/* Краткое изложение назначенного лечения */}
+      {!analysis && (
+      <div className="flex flex-wrap lg:flex-nowrap justify-center m-4 ">
+        <div className="md:w-760 md:h-50">
+          <div className="dropzone">
+          <Dropzone
+          getUploadParams={getUploadParams}
+          onChangeStatus={handleChangeStatus}
+          onSubmit={handleSubmit}
+          onClick={() => setAnalysis(true)}
+          submitButtonContent="Отправить"
+          inputWithFilesContent="Загрузить ещё"
+          inputContent=<div>
+          <FontAwesomeIcon
+            className="customIcon"
+            style={{
+              color: "rgb(243, 243, 243)",
+              fontSize: "50px",
+              margin: "10px 150px"
+            }}
+            icon={faCloudUploadAlt}
+          />
+          <p>Перетащите анализы сюда или нажмите, чтобы загрузить</p>
+        </div>
+          accept="application/pdf,image/*,audio/*,video/*"
+          />
+          </div>
+        </div>
+      </div>
+      )}
+      {analysis && <div className="flex gap-10 m-4 flex-wrap justify-center">
       <div className="flex gap-10 m-4 flex-wrap justify-center">
+      {/* Краткое изложение назначенного лечения */}
       <div className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
           <div className="flex justify-between">
             <p className="text-xl font-semibold">Рекомендованное Лечение</p>
@@ -86,20 +130,36 @@ const Treatment = () => {
               <IoIosMore />
             </button>
           </div>
+          <div className="mt-10">
+            {/*<img
+              className="md:w-96 h-50 "
+              src={product9}
+              alt=""
+            />*/}
             <div className="mt-8">
               <p className="font-semibold text-lg"></p>
               <p className="text-gray-400 "></p>
-              <p className="mt-8 text-sm text-gray-400">
-              </p>
+              <p className="font-semibold text-lg"> На основе анализов, определена меланома IV стадии после полной циторедукции.</p>
+              <p className="font-semibold text-lg"></p>
+              <p className="font-semibold text-lg"> Рекомендованная адъювантная терапия:</p>
+              <p className="font-semibold text-lg"></p>
+              <p className="font-semibold text-lg">1. Ниволумаб 1 мг/кг внутривенно капельно каждые три недели</p>
+              <p className="font-semibold text-lg">2. Четыре введения ипилимумаба 3 мг/кг внутривенно капельно каждые три недели + с дальнейшим поддерживающим режимом ниволумаба в дозе 3 мг/кг внутривенно капельно каждые две недели.</p>
+              {/*<p className="font-semibold text-lg">
+              На основе анализов, определена меланома IV стадии после полной циторедукции. 
+              Рекомендованная адъювантная терапия: 
+Ниволумаб 1 мг/кг внутривенно капельно каждые три недели + четыре введения ипилимумаба 3 мг/кг внутривенно капельно каждые три недели с дальнейшим поддерживающим режимом ниволумаба в дозе 3 мг/кг внутривенно капельно каждые две недели.
+          </p>*/}
               <div className="mt-3">
-                <Button
+                {/*<Button
                   color="white"
                   bgColor={currentColor}
-                  text=""
+                  text="Read More"
                   borderRadius="10px"
-                />
+                />*/}
               </div>
             </div>
+          </div>
         </div>
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl w-96 md:w-760">
           <div className="flex justify-between items-center gap-2 mb-10">
@@ -112,11 +172,11 @@ const Treatment = () => {
         </div>
       </div>
 
-      {/* Доска с детальным описание (1) медикаментозная терапия и (2) терапии */}
+      {/* Доска с детальным описание (1) медикаментозная терапия и (2) терапии */ }
       <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
         <Header category="Анализ МедСистемы AI" title="Схема Лечения" />
         <KanbanComponent
-          id="kanban  "
+          id="kanban"
           keyField="Status"
           dataSource={kanbanData}
           cardSettings={{ contentField: 'Summary', headerField: 'Id' }}
@@ -130,7 +190,7 @@ const Treatment = () => {
 
       <div className="flex gap-10 m-4 flex-wrap justify-center">
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl  w-100 md:w-400">
-          <ChartsHeader category="Pie" title="Project Cost Breakdown" />
+          <ChartsHeader category="Всевозможные планы лечения" title="" />
           {/* Pie chart показывает в какую группу пациент показывает */}
           <div className="w-full">
             <PieChart id="chart-pie" data={pieChartData} legendVisiblity height="full" width="full" />
@@ -138,7 +198,7 @@ const Treatment = () => {
         </div>
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl w-96 md:w-800">
           {/* Bar chart показывает 3 возможных сценария назначенного лечения и для каждого: (1) безрецидивная выживаемость, (2) рецидив, (3) плацебо */}
-          <ChartsHeader category="Bar" title="Olympic Medal Counts - RIO" />
+          <ChartsHeader category="Самый оптимальный план" title="" />
           <div className="w-full">
             <ChartComponent
               id="charts"
@@ -158,6 +218,8 @@ const Treatment = () => {
           </div>
         </div>
       </div>
+      </div>
+      }
     </div>
   );
 };
