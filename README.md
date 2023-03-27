@@ -1,12 +1,12 @@
-# MIPT Start to Innovation: AI to Treat Skin Cancern
+# ОнкоСистема AI для диганостики и лечения рака коди
 
-## Step 1. Open terminal and clone repo
+## ШАГ 1. Открыть терминал и склонировать репозиторий
 ```
-git clone https://github.com/bs35/cancern-treatment.git
+git clone https://github.com/nimus1024/oncosystem-ai.git
 ```
 (Then open VScode, find cancern-treatment folder in your computer system, open it as a new project)
 
-## Step 2. Install python 3.9 or later (required for isic-cli)
+## ШАГ 2. Установить python 3.9 (нужно для isic-cli)
 
 For Mac
 ```
@@ -16,14 +16,14 @@ brew unlink python@3.8
 brew link --force python@3.9
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 ```
-(to go back to old python3.8 version, repeat last 4 lines swapping 3.9 and 3.8)
+(вернись обратно к python3.8 версии, повтори последние 4 строчки с 3.8 вместо 3.9)
 
-For Windows, set up is easier.
+Для Windows, нужно просто
 ```
 # install python 3.11 through downloading exe, install
 ```
 
-## Step 3. Install ISIC database of skin cancer imaging (will use to train and test the model)
+## ШАГ 3. Установить ISIC database of skin cancer imaging (будем использовать для тренировки и тестирования модели)
 ```
 # For Mac: pip install isic-cli
 py -3.11 -m pip install isic-cli
@@ -34,11 +34,11 @@ isic image download --limit 0 --search 'benign_malignant:benign' images/benign
 isic image download --limit 0 --search 'benign_malignant:malignant' images/malignant 
 ```
 
-## Step 4. Start Flask app.py backend 
+## ШАГ 4. Начать Flask app.py бакэнд 
 ```
 python main.py
 ```
-## Step 4. Opena another terminal and start React npm app to launch the website 
+## ШАГ 5. Открыть ещё один терминал и начать start React npm app чтобы открылся веб-сайт
 ```
 # delete package-lock.json
 npm install
