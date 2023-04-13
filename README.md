@@ -7,7 +7,12 @@ git clone https://github.com/nimus1024/oncosystem-ai.git
 ```
 После чего открыть VScode, выбрать oncosystem-ai папку в компьютере, открыть как новый проект)
 
-## ШАГ 2. Установить python 3.9 (нужно для isic-cli)
+## ШАГ 2. **[ДЛЯ ПРОСТОГО ЗАПУСКА СИСТЕМЫ]** Загрузить нашу пред-обученную модель
+1. Скачать модель, которую мы обучили и сохранили в формате .h5: https://drive.google.com/file/d/1I6L-JMw-PZzN4z06I4ZAbc1vBZk_xM0N/view?usp=share_link
+2. Поместить файл внутрь папки репозитория
+
+## ШАГ 2. **[ДЛЯ РАЗРАБОТКИ]** 
+## Установить python 3.9 (нужно для isic-cli)
 
 For Mac
 ```
@@ -23,12 +28,8 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 ```
 # install python 3.11 through downloading exe, install
 ```
-
-## ШАГ 3. **[ДЛЯ ПРОСТОГО ЗАПУСКА СИСТЕМЫ]** Загрузить нашу пред-обученную модель
-1. Скачать модель, которую мы обучили и сохранили в формате .h5: https://drive.google.com/file/d/1I6L-JMw-PZzN4z06I4ZAbc1vBZk_xM0N/view?usp=share_link
-2. Поместить файл внутрь папки репозитория
  
-## ШАГ 3. **[ДЛЯ РАЗРАБОТКИ]** Установить ISIC database of skin cancer imaging (будем использовать для тренировки и тестирования модели)
+## Установить ISIC database of skin cancer imaging (будем использовать для тренировки и тестирования модели)
 ```
 # For Mac: pip install isic-cli
 py -3.11 -m pip install isic-cli
