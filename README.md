@@ -40,12 +40,12 @@ isic image download --limit 0 --search 'benign_malignant:benign' images/benign
 isic image download --limit 0 --search 'benign_malignant:malignant' images/malignant 
 ```
 
-## ШАГ 4. Запустить Flask app.py бакэнд 
+## ШАГ 3. Запустить Flask app.py бакэнд 
 ```
 python main.py
 ```
 
-## ШАГ 5. Открыть ещё один терминал и начать start React npm app чтобы открылся веб-сайт
+## ШАГ 4. Открыть ещё один терминал и начать start React npm app чтобы открылся веб-сайт
 ```
 # delete package-lock.json
 npm install
