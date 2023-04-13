@@ -24,11 +24,11 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 # install python 3.11 through downloading exe, install
 ```
 
-## ШАГ 3. *ДЛЯ ПРОСТОГО ЗАПУСКА СИСТЕМЫ* Загрузить нашу пред-обученную модель
+## ШАГ 3. **[ДЛЯ ПРОСТОГО ЗАПУСКА СИСТЕМЫ]** Загрузить нашу пред-обученную модель
 1. Скачать модель, которую мы обучили и сохранили в формате .h5: https://drive.google.com/file/d/1I6L-JMw-PZzN4z06I4ZAbc1vBZk_xM0N/view?usp=share_link
 2. Поместить файл внутрь папки репозитория
  
-## ШАГ 3. *ДЛЯ РАЗРАБОТКИ* Установить ISIC database of skin cancer imaging (будем использовать для тренировки и тестирования модели)
+## ШАГ 3. **[ДЛЯ РАЗРАБОТКИ]** Установить ISIC database of skin cancer imaging (будем использовать для тренировки и тестирования модели)
 ```
 # For Mac: pip install isic-cli
 py -3.11 -m pip install isic-cli
